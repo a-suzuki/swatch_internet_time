@@ -7,6 +7,8 @@ def get_internet_time(time)
 	interenet_time = 1000.0 * total_sec / DAY_SEC
 end
 
+puts sprintf("%.2f", get_internet_time(Time.now))
+
 describe "get_internet_time" do
 	it "should receive 666.67 at 0:00" do
 		time = Time.mktime(2012, 8, 14, 0, 0, 0)
