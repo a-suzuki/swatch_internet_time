@@ -2,10 +2,9 @@ DAY_SEC = 24 * 60 * 60
 
 def get_internet_time(time)
 	time_utc = time.utc
-	time_total_sec = 60 * (60 * (time_utc.hour + 1) + time_utc.min) + time_utc.sec
-	interenet_time = 1000.0 * time_total_sec / DAY_SEC
-
-	(interenet_time >= 1000) ? interenet_time - 1000 : interenet_time
+	hour_biel = (time_utc.hour + 1) % 24
+	total_sec = 60 * (60 * (hour_biel) + time_utc.min) + time_utc.sec
+	interenet_time = 1000.0 * total_sec / DAY_SEC
 end
 
 describe "get_internet_time" do
